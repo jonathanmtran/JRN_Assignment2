@@ -1,0 +1,11 @@
+a1|Galaxy S4|galaxys4.jpg|The Galaxy S4 does what you want and what you didn't know was even possible.|5 inch screen · 13 megapixel camera|99.99
+a2|Nokia Lumia 520|nokialumia520.jpg|Stay connected with this AT&T Nokia Lumia 520 mobile phone, which features 4G speed for rapid data transfer.|4 inch screen · Quad-band · 800 x 480|65.99
+a3|Apple iPhone 5s|iphone5s.jpg|No matter what its orientation - portrait, landscape, or anything in between - your iPhone reads your fingerprint and knows who you are.|4 inch screen · 8 megapixel camera · Quad-band|99.99
+a4|Motorola Droid Razr M|razrm.jpg|The big 4.3-inch display spans edge-to-edge, yet RAZR M still fits perfectly in the palm of your hand.|4.3 inch screen · 8 megapixel camera · Quad-band|89.99
+a5|Galaxy Note 2|galaxynote2.jpg|Looking for the smartphone that can do it all? The Galaxy Note II is a powerhouse of productivity.|4G LTE · 5.5 inch screen · 8 megapixel camera|49.99
+a6|Apple iPhone 4s|iphone4s.jpg|iPhone 4S picks up where amazing left off. It's the fastest, most powerful iPhone ever.|3.5 inch screen · 8 megapixel camera · Quad-band|120.99
+a7|Nokia Lumia 521|nokialumia521.jpg|The Nokia Lumia 521 for T-Mobile. Monthly. 4G is a fast smartphone with the flexibility of no-contract plan options.| 4 inch screen · 5 megapixel camera · 9 hour talk time|89.99
+a8|Galaxy S3|galaxys3.jpg|Optimized for peak performance, the Android-powered Samsung Galaxy S III from Sprint is just ok.| 4.8 inch screen · 8 megapixel camera · Dual-band.|56.99
+a9|Google Nexus 5|googlenexus5.jpg|It's a 5" phone, and so much more and built with precision.|4.9 inch screen · 8 megapixel camera · Quad-band|99.99
+a10|Galaxy Note 3|galaxynote3.jpg|An elegant new design with a larger, more vibrant HD display and incredible performance.|4G LTE · 5.7 inch screen · 13 megapixel camera|109.99
+
