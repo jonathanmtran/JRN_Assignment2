@@ -5,22 +5,24 @@ import java.text.NumberFormat;
 
 public class LineItem implements Serializable
 {
-    private CellPhone cellPhone;
+    private Item item;
     private int quantity;
     
-    public LineItem() {}
+	public LineItem() {}
     
-   public void setCellPhone(CellPhone c){
-       cellPhone = c;
-   }
+	public LineItem setCellPhone(Item i){
+       item = i;
+	   return this;
+	}
    
-   public CellPhone getCellPhone(){
-       return cellPhone;
-   }
+	public Item getItem(){
+       return item;
+	}
 
-    public void setQuantity(int quantity)
+    public LineItem setQuantity(int quantity)
     {
         this.quantity = quantity;
+		return this;
     }
     
     public int getQuantity()
@@ -30,7 +32,7 @@ public class LineItem implements Serializable
     
     public double getTotal()
     { 
-        double total = cellPhone.getPrice() * quantity;
+        double total = item.getPrice() * quantity;
         return total;
     }
     
