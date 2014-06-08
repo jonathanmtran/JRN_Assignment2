@@ -28,6 +28,7 @@ public class ItemDB {
 				item.setDescription(rs.getString("description"));
 				item.setSpecs(rs.getString("specification"));
 				item.setImageLoc(rs.getString("photoName"));
+				item.setPrice(rs.getDouble("price"));
 			}
 			
 			return item;
@@ -63,6 +64,7 @@ public class ItemDB {
 				item.setDescription(rs.getString("description"));
 				item.setSpecs(rs.getString("specification"));
 				item.setImageLoc(rs.getString("photoName"));
+				item.setPrice(rs.getDouble("price"));
 				
 				items.add(item);
 			}
