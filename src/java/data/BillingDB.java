@@ -9,8 +9,11 @@ public class BillingDB {
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
 		
-		String query = "INSERT INTO billing (orderID, email, cardHolderName, cardNumber, expirationMonth, expirationYear, secureCode) " +
-			"VALUES(?, ?, ?, ?, ?, ?, ?)";
+		String query = 
+			"INSERT INTO billing ( " +
+				"orderID, email, cardHolderName, cardNumber, " + 
+				"expirationMonth, expirationYear, secureCode" + 
+			") VALUES(?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
 			ps = connection.prepareStatement(query);

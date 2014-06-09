@@ -3,18 +3,9 @@
     Created on : Jun 3, 2014, 2:17:24 PM
     Author     : dead
 --%>
-
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.io.FileReader"%>
-<%@page import="java.io.BufferedReader"%>
-<%@page import="java.io.PrintWriter"%>
-<%@page import="java.io.FileOutputStream"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.Date"%>
-<%@page import="business.*"%>
-<%@page import="java.io.BufferedWriter"%>
-<%@page import="java.io.FileWriter"%>
-<%@page import="java.io.File"%>
+<%@page import="java.text.SimpleDateFormat,java.io.FileReader,java.io.BufferedReader,java.io.PrintWriter"%>
+<%@page import="java.io.FileOutputStream,java.util.ArrayList,java.util.Date,business.*"%>
+<%@page import="java.io.BufferedWriter,java.io.FileWriter,java.io.File"%>
 <%@page contentType="text/html" pageEncoding="windows-1252"%>
 <!DOCTYPE html>
 <html>

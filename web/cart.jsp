@@ -1,3 +1,4 @@
+<%@ page import="business.*, java.util.ArrayList" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -15,8 +16,6 @@
     <th>Price</th>
     <th>Amount</th>
   </tr>
-
-<%@ page import="business.*, java.util.ArrayList" %>
 <% 
    Cart cart = (Cart)session.getAttribute("cart"); 
    ArrayList<OrderLine> items = cart.getItems();

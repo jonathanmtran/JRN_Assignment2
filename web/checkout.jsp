@@ -1,8 +1,4 @@
-<%@page import="java.io.BufferedWriter"%>
-<%@page import="java.io.FileWriter"%>
-<%@page import="java.io.FileReader"%>
-<%@page import="java.io.BufferedReader"%>
-<%@page import="java.io.File"%>
+<%@page import="java.io.BufferedWriter, java.io.FileWriter, java.io.FileReader, java.io.BufferedReader, java.io.File, business.User, java.util.ArrayList"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -54,7 +50,6 @@
             </td>
     </tr>
 </table>
-<%@ page import="business.User, java.util.ArrayList" %>
 
 
 
