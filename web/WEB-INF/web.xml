@@ -5,11 +5,19 @@
         <servlet-class>cart.CartServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>Checkout</servlet-name>
+        <servlet-class>cart.Checkout</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CartServlet</servlet-name>
         <url-pattern>/cart</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>Checkout</servlet-name>
+        <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

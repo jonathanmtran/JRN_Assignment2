@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class ItemDB {
 	
-	public static Item selectItem(int itemId) {
+	public static Item fetch(int itemId) {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;

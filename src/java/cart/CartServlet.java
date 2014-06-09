@@ -23,8 +23,12 @@ public class CartServlet extends HttpServlet
 			session.setAttribute("cart", cart);
 		}
 		
-		int itemId = Integer.parseInt(request.getParameter("cellPhoneCode"));
-		Item item = ItemDB.selectItem(itemId);
+		Item item = null;
+		
+		if(request.getParameter("cellPhoneCode") != null) {
+			int itemId = Integer.parseInt(request.getParameter("cellPhoneCode"));
+			item = ItemDB.fetch(itemId);
+		}
 		
 		if(action.equals("add")) {	
 			cart.addItem(new OrderLine(item, 1));

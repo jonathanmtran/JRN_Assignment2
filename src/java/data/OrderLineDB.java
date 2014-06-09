@@ -9,7 +9,7 @@ public class OrderLineDB {
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
 		
-		String query = "INSERT INTO orderline (orderID, itemID, quantity, subtotal) VALUES(?, ?, ?, ?))";
+		String query = "INSERT INTO orderline (orderID, itemID, quantity, subtotal) VALUES(?, ?, ?, ?)";
 		
 		try {
 			ps = connection.prepareStatement(query);

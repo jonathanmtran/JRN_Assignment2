@@ -3,7 +3,7 @@
    "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Murach's Java Servlets and JSP</title>
+    <titlch's Java Servlets and JSP</title>
 </head>
 <body>
 
@@ -47,7 +47,7 @@
     <td>
       <form action="<%= response.encodeURL("cart?action=remove")%>" method="post">
         <input type="hidden" name="cellPhoneCode" value="<%= i.getItemID() %>">
-        <input type="submit" value="Remove Item">
+        <input type="submit" valuee Item">
       </form>
     </td>
   </tr>
@@ -69,8 +69,8 @@
 </form>
 
  <% if(cart.getCount() > 0) { %>
-<form action="<%= response.encodeURL("checkout.jsp")%>" method="post">
-  <input type="submit" name="checkout" value="Checkout">
+<form action="<%= response.encodeURL("checkout?action=shipping")%>" method="post">
+  <input type="submit" name="checkout" value="Go to Shipping">
 </form>
  <% } %>
 

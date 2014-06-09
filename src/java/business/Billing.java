@@ -23,6 +23,16 @@ public class Billing {
 		this.expirationYear = year;
 		this.secureCode = code;
 	}
+
+	public Billing(String emailAddress, String name, 
+		String number, String month, String year, String code) {
+		this.email = emailAddress;
+		this.cardHolderName = name;
+		this.cardNumber = number;
+		this.expirationMonth = month;
+		this.expirationYear = year;
+		this.secureCode = code;
+	}	
 	
 	public Billing setBillingId(int id) { 
 		this.billingId = id;

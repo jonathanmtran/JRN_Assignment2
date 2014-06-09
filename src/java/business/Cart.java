@@ -53,4 +53,13 @@ public class Cart
 			}
 		}
     }
+
+	public double getTotal() {
+		double total = 0.0;
+		
+		for(OrderLine orderLine : items)
+			total += orderLine.getSubtotal();
+		
+		return total;
+	}
 }
