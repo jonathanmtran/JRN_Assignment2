@@ -69,9 +69,11 @@
   <input type="submit" name="continue" value="Continue Shopping">
 </form>
 
+ <% if(cart.getCount() > 0) { %>
 <form action="<%= response.encodeURL("checkout.jsp")%>" method="post">
   <input type="submit" name="checkout" value="Checkout">
 </form>
+ <% } %>
 
 </body>
 </html>
