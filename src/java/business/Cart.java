@@ -1,18 +1,17 @@
 package business;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Cart implements Serializable
+public class Cart
 {
-    private ArrayList<LineItem> items;
+    private ArrayList<OrderLine> items;
     
     public Cart()
     {
-        items = new ArrayList<LineItem>();
+        items = new ArrayList<>();
     }
     
-    public ArrayList<LineItem> getItems()
+    public ArrayList<OrderLine> getItems()
     { 
         return items;
     }
@@ -22,31 +21,36 @@ public class Cart implements Serializable
         return items.size();
     }
     
-    public void addItem(LineItem item)
+    public void addItem(OrderLine item)
     {
-        String code = item.getCellPhone().getCode();
         int quantity = item.getQuantity();
-        for (LineItem lineItem : items) {
-            if (lineItem.getCellPhone().getCode().equals(code))
-            {
-                lineItem.setQuantity(quantity);
-                return;
-            }
+		
+        for (OrderLine lineItem : items) {
+			if(lineItem.getItem().getItemID() == item.getItem().getItemID()) {
+				lineItem.setQuantity(lineItem.getQuantity() + quantity);
+				return;
+			}
         }
+		
         items.add(item);
     }
     
-    public void removeItem(LineItem item)
+	public void updateItem(OrderLine item) {
+		for(OrderLine lineItem : items) {
+			if(lineItem.getItem().getItemID() == item.getItem().getItemID()) {
+				lineItem.setQuantity(item.getQuantity());
+				return; 
+			}
+		}
+	}
+	
+    public void removeItem(OrderLine item)
     {
-        String code = item.getCellPhone().getCode();
-        for (int i = 0; i < items.size(); i++)
-        {
-            LineItem lineItem = items.get(i);
-            if (lineItem.getCellPhone().getCode().equals(code))
-            {
-                items.remove(i);
-                return;
-            }
-        }
+		for(OrderLine lineItem : this.items) {
+			if(lineItem.getItem().getItemID() == item.getItem().getItemID()) {
+				this.items.remove(lineItem);
+				return;
+			}
+		}
     }
 }

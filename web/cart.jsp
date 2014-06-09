@@ -18,42 +18,36 @@
 
 <%@ page import="business.*, java.util.ArrayList" %>
 <% 
-   Cart cart = (Cart) session.getAttribute("cart"); 
-   ArrayList<LineItem> items = cart.getItems();
-   session.setAttribute("items", items);
-   for (LineItem item : items)
-   {
-       CellPhone cellPhone = item.getCellPhone();
+   Cart cart = (Cart)session.getAttribute("cart"); 
+   ArrayList<OrderLine> items = cart.getItems();
+   
+   for (OrderLine item : items) {
+       Item i = item.getItem();
 %>
 
   <tr valign="top">
     <td>
-      <form action="<%=response.encodeURL("cart")%>" method="post">
-         <input type="hidden" name="cellPhoneCode" 
-               value="<%=cellPhone.getCode()%>">
-        <input type=text size=2 name="quantity" 
-               value="<%=item.getQuantity()%>">
-        <input type="submit" value="Update">
+      <form action="<%=response.encodeURL("cart?action=update")%>" method="post">
+			<input type="hidden" name="cellPhoneCode" value="<%= i.getItemID() %>">
+			<input type=text size=2 name="quantity" value="<%= item.getQuantity() %>">
+			<input type="submit" value="Update">
       </form>
     </td>
     <td>
-      <%=cellPhone.getName()%>
+      <%=i.getName()%>
     </td>
     <td>
-        <img src="phones\<%=cellPhone.getImageLoc()%>" />
+        <img src="phones/<%=i.getImageLoc()%>" />
     </td>
     <td>
-      <%=cellPhone.getPriceCurrencyFormat()%>
+      <%=i.getPriceCurrencyFormat()%>
     </td>
     <td>
       <%=item.getTotalCurrencyFormat()%>
     </td>
     <td>
-      <form action="<%= response.encodeURL("cart")%>" method="post">
-        <input type="hidden" name="cellPhoneCode" 
-               value="<%=cellPhone.getCode()%>">
-        <input type="hidden" name="quantity" 
-               value="0">
+      <form action="<%= response.encodeURL("cart?action=remove")%>" method="post">
+        <input type="hidden" name="cellPhoneCode" value="<%= i.getItemID() %>">
         <input type="submit" value="Remove Item">
       </form>
     </td>

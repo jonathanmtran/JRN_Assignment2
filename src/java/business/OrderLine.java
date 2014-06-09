@@ -12,6 +12,11 @@ public class OrderLine implements Serializable
 	
 	public OrderLine() {}
     
+	public OrderLine(Item i, int qty) {
+		this.item = i;
+		this.quantity = qty;
+	}
+	
 	public OrderLine setOrderlineId(int id) {
 		this.orderlineId = id;
 		return this;
