@@ -4,7 +4,7 @@ import java.sql.*;
 import business.OrderLine;
 
 public class OrderLineDB {
-	public static int insert(OrderLine orderLine) {
+	public static OrderLine insert(OrderLine orderLine) {
 		ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
@@ -18,12 +18,22 @@ public class OrderLineDB {
 			ps.setInt(3, orderLine.getQuantity());
 			ps.setDouble(4, orderLine.getSubtotal());
 			
-			return ps.executeUpdate();
+			if(ps.executeUpdate() == 1) {
+				query = "SELECT LAST_INSERT_ID();";
+				
+				Statement statement = connection.createStatement();
+				ResultSet rs = statement.executeQuery(query);
+				
+				if(rs.next())
+					orderLine.setOrderlineId(rs.getInt(1));					
+			}
+			
+			return orderLine;
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
 			
-			return 0;
+			return orderLine;
 		}
 		finally {
 			DBUtil.closePreparedStatement(ps);
