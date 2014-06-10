@@ -36,7 +36,7 @@
       <%=i.getName()%>
     </td>
     <td>
-        <img src="phones/<%=i.getImageLoc()%>" />
+        <img src="photos/<%=i.getImageLoc()%>" />
     </td>
     <td>
       <%=i.getPriceCurrencyFormat()%>

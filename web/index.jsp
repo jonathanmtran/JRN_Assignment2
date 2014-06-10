@@ -26,7 +26,7 @@
 %>
 	<tr>
 		<td><%= item.getName() %></td>
-		<td><img src="phones/<%= item.getImageLoc() %>" /></td>
+		<td><img src="photos/<%= item.getImageLoc() %>" /></td>
 		<td><%= item.getDescription() %></td>
 		<td><%= item.getSpecs() %></td>
 		<td><%= item.getPriceCurrencyFormat() %></td>
