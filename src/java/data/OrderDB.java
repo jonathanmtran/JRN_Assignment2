@@ -4,7 +4,7 @@ import java.sql.*;
 import business.Order;
 
 public class OrderDB {
-	public static int insert(Order order) {
+	public static Order insert(Order order) {
 		ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
@@ -15,8 +15,6 @@ public class OrderDB {
 			ps = connection.prepareStatement(query);
 			ps.setDouble(1, order.getTotal());
 			
-			int orderId = 0;
-			
 			if(ps.executeUpdate() == 1) {
 				query = "SELECT LAST_INSERT_ID();";
 				
@@ -24,42 +22,15 @@ public class OrderDB {
 				ResultSet rs = statement.executeQuery(query);
 				
 				if(rs.next())
-					orderId = rs.getInt(1);
+					order.setOrderId(rs.getInt(1));
 			}
 			
-			return orderId;
+			return order;
 		}
 		catch(SQLException e) {
 			System.err.println(e.getMessage());
 			
-			return 0;
-		}
-		finally {
-			DBUtil.closePreparedStatement(ps);
-			pool.freeConnection(connection);
-		}
-	}
-	
-	public static int update(Order order) {
-		ConnectionPool pool = ConnectionPool.getInstance();
-        Connection connection = pool.getConnection();
-        PreparedStatement ps = null;
-		
-		String query = "UPDATE `order` SET " +
-			"total = ?, date = ? " +
-			"WHERE orderID = ?";
-		
-		try {
-			ps = connection.prepareStatement(query);
-			ps.setDouble(1, order.getTotal());
-			ps.setDate(2, order.getDate());
-			
-			return ps.executeUpdate();
-		}
-		catch(SQLException e) {
-			e.printStackTrace();
-			
-			return 0;
+			return order;
 		}
 		finally {
 			DBUtil.closePreparedStatement(ps);

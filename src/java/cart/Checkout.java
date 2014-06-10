@@ -92,22 +92,21 @@ public class Checkout extends HttpServlet {
 				Order order = new Order();
 				order.setTotal(cart.getTotal());
 				
-				int orderId = OrderDB.insert(order);
-				order = OrderDB.fetch(orderId);
+				order = OrderDB.insert(order);
 				
 				// Save billing to database
 				Billing billing = (Billing)session.getAttribute("billing");
-				billing.setOrderId(orderId);
+				billing.setOrderId(order.getOrderId());
 				BillingDB.insert(billing);
 				
 				// Save shipping to database
 				Shipping shipping = (Shipping)session.getAttribute("shipping");
-				shipping.setOrderId(orderId);
+				shipping.setOrderId(order.getOrderId());
 				ShippingDB.insert(shipping);
 				
 				// Save orderlines to database
 				for(OrderLine line : cart.getItems()) {
-					line.setOrderId(orderId);
+					line.setOrderId(order.getOrderId());
 					
 					OrderLineDB.insert(line);
 				}
