@@ -14,7 +14,7 @@
     <body>
 <%
 	Order o = (Order)request.getAttribute("order");
-	Shipping s = (Shipping)session.getAttribute("shipping");
+	Shipping s = (Shipping)request.getAttribute("shipping");
 %>
 		<p>
 			Thanks, <%= s.getName() %>,  your order number is <%= o.getOrderId() %> and the total 

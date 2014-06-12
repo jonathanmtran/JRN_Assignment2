@@ -36,7 +36,15 @@ public class Checkout extends HttpServlet {
 		String url = null;
 		
 		if(action == null) {
-			url = "/cart";
+			Shipping shipping = (Shipping)session.getAttribute("shipping");
+			Billing billing = (Billing)session.getAttribute("billing");
+			
+			if(shipping == null)
+				url = "/checkout/shipping.jsp";
+			else if(billing == null)
+				url = "/checkout/shipping.jsp";
+			else
+				url = "/checkout/review.jsp";
 		}
 		else if(action.equals("shipping")) {
 			String name = request.getParameter("name");
@@ -113,7 +121,14 @@ public class Checkout extends HttpServlet {
 				
 				// TODO: Email user about order and shipping information
 				
+				request.setAttribute("shipping", shipping);
 				request.setAttribute("order", order);
+				
+				session.removeAttribute("cart");
+				session.removeAttribute("billing");
+				session.removeAttribute("shipping");
+				session.removeAttribute("order");
+				
 				url = "/checkout/finish.jsp";
 			}
 			else
