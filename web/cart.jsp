@@ -46,12 +46,11 @@
     </td>
     <td>
       <form action="<%= response.encodeURL("cart?action=remove")%>" method="post">
-        <input type="hidden" name="cellPhoneCode" value="<%= i.getItemID() %>">
-        <input type="submit" valuee Item">
+        <input type="hidden" name="cellPhoneCode" value="<%= i.getItemID() %>" />
+        <input type="submit" value="Remove" />
       </form>
     </td>
   </tr>
-
 <% } %>
 
   <tr>
@@ -64,15 +63,11 @@
 
 <br>
 
-<form action="<%= response.encodeURL("index.jsp")%>" method="post">
-  <input type="submit" name="continue" value="Continue Shopping">
-</form>
+<a href="<%= response.encodeURL("index.jsp")%>">Continue Shopping</a>
 
- <% if(cart.getCount() > 0) { %>
-<form action="<%= response.encodeURL("checkout?action=shipping")%>" method="post">
-  <input type="submit" name="checkout" value="Go to Shipping">
-</form>
- <% } %>
+<% if(cart.getCount() > 0) { %>
+<a href="<%= response.encodeURL("checkout") %>">Checkout</a>
+<% } %>
 
 </body>
 </html>
