@@ -23,7 +23,14 @@ public class User {
         lastName = "";
         email = "";
     }
-    
+	
+    public User(String f, String l, String e)
+    {
+        firstName = f;
+        lastName = l;
+        email = e;
+    }
+	
     public void setFirstName(String f)
     {
         firstName = f;

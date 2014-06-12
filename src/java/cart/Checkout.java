@@ -118,8 +118,15 @@ public class Checkout extends HttpServlet {
 					
 					line = OrderLineDB.insert(line);
 				}
-				
-				// TODO: Email user about order and shipping information
+
+				// Email user about order and shipping information
+				String content = String.format("%s,  Your order has been placed. "
+						+"your order number is %d and the total amount is %s." 
+						+"<br />We appreciate your business.",
+						shipping.getName(),order.getOrderId(),order.getTotalCurrencyFormat());
+				String email = billing.getEmail();
+				EmailGmail gmail = new EmailGmail();
+				gmail.sendIt(email,content);
 				
 				request.setAttribute("shipping", shipping);
 				request.setAttribute("order", order);

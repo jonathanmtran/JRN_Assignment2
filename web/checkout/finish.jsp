@@ -16,9 +16,12 @@
 	Order o = (Order)request.getAttribute("order");
 	Shipping s = (Shipping)request.getAttribute("shipping");
 %>
+		<h2>
+			We appreciate your business. Your order has been placed.
+		</h2>
 		<p>
-			Thanks, <%= s.getName() %>,  your order number is <%= o.getOrderId() %> and the total 
-			amount is <%= o.getTotalCurrencyFormat() %>. An email for this order is sent to you
+			Thank you, <%= s.getName() %>,  your order number is <%= o.getOrderId() %> and the total 
+			amount is <%= o.getTotalCurrencyFormat() %>. An email for this order is sent to you.
 		</p>
     </body>
 </html>
