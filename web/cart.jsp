@@ -1,20 +1,15 @@
 <%@ page import="business.*, java.util.ArrayList" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <title>Murach's Java Servlets and JSP</title>
-</head>
-<body>
+<jsp:include page="inc/header.jsp" />
 
 <h1>Your cart</h1>
-<table border="1" cellpadding="5">
+<table class="table">
   <tr>
     <th>Quantity</th>
     <th>Name</th>
     <th>Image</th>
     <th>Price</th>
     <th>Amount</th>
+	<th></th>
   </tr>
 <% 
    Cart cart = (Cart)session.getAttribute("cart"); 
@@ -29,7 +24,7 @@
       <form action="<%=response.encodeURL("cart?action=update")%>" method="post">
 			<input type="hidden" name="cellPhoneCode" value="<%= i.getItemID() %>">
 			<input type=text size=2 name="quantity" value="<%= item.getQuantity() %>">
-			<input type="submit" value="Update">
+			<input type="submit" value="Update" class="btn btn-default btn-sm">
       </form>
     </td>
     <td>
@@ -47,7 +42,7 @@
     <td>
       <form action="<%= response.encodeURL("cart?action=remove")%>" method="post">
         <input type="hidden" name="cellPhoneCode" value="<%= i.getItemID() %>" />
-        <input type="submit" value="Remove" />
+        <input type="submit" value="Remove" class="btn btn-default btn-sm" />
       </form>
     </td>
   </tr>
@@ -63,11 +58,10 @@
 
 <br>
 
-<a href="<%= request.getContextPath() %>">Continue Shopping</a>
+<a href="<%= request.getContextPath() %>" class="btn btn-default">Continue Shopping</a>
 
 <% if(cart.getCount() > 0) { %>
-<a href="<%= response.encodeURL("checkout") %>">Checkout</a>
+<a href="<%= response.encodeURL("checkout") %>" class="btn btn-default pull-right">Checkout</a>
 <% } %>
 
-</body>
-</html>
+<jsp:include page="inc/footer.jsp" />

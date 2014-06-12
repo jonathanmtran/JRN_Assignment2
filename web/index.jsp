@@ -1,17 +1,7 @@
-<%@page import="java.util.ArrayList,business.Item,data.ItemDB"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <title>Murach's Java Servlets and JSP</title>
-</head>
-<body>
+<%@page import="business.Item,java.util.ArrayList"%>
+<jsp:include page="inc/header.jsp" />
 
-<h1>CD list</h1>
-
-<table cellpadding="5" border=1>
-
-  
+<table class="table"> 
   <tr valign="bottom">
     <td align="left"><b>Name</b></td>
     <td align="left"><b>Image</b></td>
@@ -33,7 +23,7 @@
 					<input type="hidden" name="action" value="add" />
 					<input type="hidden" name="cellPhoneCode" value="<%= item.getItemID() %>" />
 					<input type="text" size="2" name="quantity" value="1" />
-					<input type="submit" value="Add to Cart" />
+					<input type="submit" value="Add to Cart" class="btn btn-default btn-sm" />
 				</form>
 			</span>
 		</td>
@@ -41,7 +31,7 @@
 <% } %>
 </table>
 
-<ul class="pagination">
+<ul class="pagination pull-right">
 <% 
 	for(int i = 0; i <= (int)request.getAttribute("pages"); i++) { 
 		int pageNum = i + 1;
@@ -60,5 +50,4 @@
 %>
 </ul>
 
-</body>
-</html>
+<jsp:include page="inc/footer.jsp" />

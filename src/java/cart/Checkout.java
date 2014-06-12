@@ -108,8 +108,10 @@ public class Checkout extends HttpServlet {
 				else
 					url = "/checkout/billing.jsp";
 			}
-			else
+			else {
+				request.setAttribute("title", "Let's Review Your Order");
 				url = "/checkout/billing.jsp";
+			}
 		}
 		else if(action.equals("review")) {
 			String finish = request.getParameter("finish");
@@ -156,6 +158,8 @@ public class Checkout extends HttpServlet {
 				session.removeAttribute("billing");
 				session.removeAttribute("shipping");
 				session.removeAttribute("order");
+				
+				request.setAttribute("title", "Thank you for your order");
 				
 				url = "/checkout/finish.jsp";
 			}
