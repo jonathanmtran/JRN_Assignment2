@@ -59,18 +59,25 @@ public class Checkout extends HttpServlet {
 			String state = request.getParameter("state");
 			String zip = request.getParameter("zip");
 			
+			// Check to see if these variables actually exist
 			if(name != null && street != null && city != null && 
 				state != null && zip != null) {
-				Shipping shipping = new Shipping();
-				shipping.setName(name);
-				shipping.setStreet(street);
-				shipping.setCity(city);
-				shipping.setState(state);
-				shipping.setZip(zip);
-				
-				session.setAttribute("shipping", shipping);
-				
-				url = "/checkout/billing.jsp";
+				// Check length of strings
+				if(name.length() != 0 && street.length() != 0 && city.length() != 0 &&
+					state.length() != 0 && zip.length() != 0 ) {
+					Shipping shipping = new Shipping();
+					shipping.setName(name);
+					shipping.setStreet(street);
+					shipping.setCity(city);
+					shipping.setState(state);
+					shipping.setZip(zip);
+
+					session.setAttribute("shipping", shipping);
+
+					url = "/checkout/billing.jsp";
+				}
+				else 
+					url = "/checkout/shipping.jsp";
 			}
 			else
 				url = "/checkout/shipping.jsp";
@@ -83,15 +90,23 @@ public class Checkout extends HttpServlet {
 			String expirationY = request.getParameter("expirationYear");
 			String secureCode = request.getParameter("secureCode");
 			
+			// Check to see if these variables actually exist
 			if(email != null && cardHolderName != null && cardNumber != null &&
 				expirationM != null && expirationY != null && 
 				secureCode != null) {
+				// Check length of strings
+				if(email.length() != 0 && cardHolderName.length() != 0 && cardNumber.length() != 0 &&
+					expirationM.length() != 0 && expirationY.length() != 0 && 
+					secureCode.length() != 0) {
 				Billing billing = new Billing(email, cardHolderName, cardNumber,
 					expirationM, expirationY, secureCode);
 				
 				session.setAttribute("billing", billing);
 				
 				url = "/checkout/review.jsp";
+				}
+				else
+					url = "/checkout/billing.jsp";
 			}
 			else
 				url = "/checkout/billing.jsp";
