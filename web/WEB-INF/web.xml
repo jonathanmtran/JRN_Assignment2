@@ -4,19 +4,25 @@
         <servlet-name>CartServlet</servlet-name>
         <servlet-class>cart.CartServlet</servlet-class>
     </servlet>
-
     <servlet>
         <servlet-name>Checkout</servlet-name>
         <servlet-class>cart.Checkout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ItemListing</servlet-name>
+        <servlet-class>cart.ItemListing</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CartServlet</servlet-name>
         <url-pattern>/cart</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>Checkout</servlet-name>
         <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ItemListing</servlet-name>
+        <url-pattern>/itemListing</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -24,8 +30,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>
-            index.jsp
-        </welcome-file>
+        <welcome-file>itemListing</welcome-file>
     </welcome-file-list>
 </web-app>

@@ -20,10 +20,7 @@
     <td align="left"><b>Price</b></td>
     <td align="left"></td>
   </tr> 
-<%
-	ArrayList<Item> items = ItemDB.fetchAll();
-	for(Item item : items) {
-%>
+<% for(Item item : (ArrayList<Item>)request.getAttribute("items")) { %>
 	<tr>
 		<td><%= item.getName() %></td>
 		<td><img src="photos/<%= item.getImageLoc() %>" /></td>
@@ -43,5 +40,25 @@
 	</tr>
 <% } %>
 </table>
+
+<ul class="pagination">
+<% 
+	for(int i = 0; i <= (int)request.getAttribute("pages"); i++) { 
+		int pageNum = i + 1;
+%>
+	
+<%		if(pageNum != (int)request.getAttribute("page")) { %>
+	<li><a href="<%= response.encodeURL("?page=" + pageNum) %>"><%= pageNum %></a></li>
+<%		
+		}
+		else {	
+%>
+	<li class="active"><span><%= pageNum %> <span class="sr-only">(current)</span></span></li>
+<%
+		}
+	} 
+%>
+</ul>
+
 </body>
 </html>
