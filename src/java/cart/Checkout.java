@@ -36,10 +36,16 @@ public class Checkout extends HttpServlet {
 		String url = null;
 		
 		if(action == null) {
+			Cart cart = (Cart)session.getAttribute("cart");
 			Shipping shipping = (Shipping)session.getAttribute("shipping");
 			Billing billing = (Billing)session.getAttribute("billing");
 			
-			if(shipping == null)
+			if(cart == null || cart.getCount() == 0) {
+				url = response.encodeURL("cart");
+				response.sendRedirect(url);
+				return;
+			}
+			else if(shipping == null)
 				url = "/checkout/shipping.jsp";
 			else if(billing == null)
 				url = "/checkout/shipping.jsp";
