@@ -1,10 +1,8 @@
 package business;
 
-import java.io.Serializable;
 import java.text.NumberFormat;
 
-public class OrderLine implements Serializable
-{
+public class OrderLine {
 	private int orderlineId;
 	private int orderId;
 	private Item item;
