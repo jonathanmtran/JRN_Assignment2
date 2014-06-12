@@ -25,12 +25,21 @@ public class Cart
     {
         int quantity = item.getQuantity();
 		
-        for (OrderLine lineItem : items) {
+        for (OrderLine lineItem : this.items) {
 			if(lineItem.getItem().getItemID() == item.getItem().getItemID()) {
-				lineItem.setQuantity(lineItem.getQuantity() + quantity);
+				int qty = lineItem.getQuantity() + quantity;
+				
+				if(qty > 0)
+					lineItem.setQuantity(qty);
+				else
+					this.removeItem(lineItem);
+				
 				return;
 			}
         }
+		
+		if(quantity < 0)
+			return;
 		
         items.add(item);
     }

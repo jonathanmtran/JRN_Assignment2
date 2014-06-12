@@ -30,7 +30,16 @@
 		<td><%= item.getDescription() %></td>
 		<td><%= item.getSpecs() %></td>
 		<td><%= item.getPriceCurrencyFormat() %></td>
-		<td><a href="<%= response.encodeUrl("cart?action=add&cellPhoneCode=" + item.getItemID()) %>">Add to Cart</a></td>
+		<td>
+			<span style="text-align: center">
+				<form action="<%= response.encodeURL("cart") %>" method="post">
+					<input type="hidden" name="action" value="add" />
+					<input type="hidden" name="cellPhoneCode" value="<%= item.getItemID() %>" />
+					<input type="text" size="2" name="quantity" value="1" />
+					<input type="submit" value="Add to Cart" />
+				</form>
+			</span>
+		</td>
 	</tr>
 <% } %>
 </table>
