@@ -30,8 +30,9 @@ public class CartServlet extends HttpServlet
 			item = ItemDB.fetch(itemId);
 		}
 		
-		if(action.equals("add")) {	
-			cart.addItem(new OrderLine(item, 1));
+		if(action.equals("add")) {
+			int qty = Integer.parseInt(request.getParameter("quantity"));
+			cart.addItem(new OrderLine(item, qty));
 		}
 		else if(action.equals("update")) {
 			int qty = Integer.parseInt(request.getParameter("quantity"));
