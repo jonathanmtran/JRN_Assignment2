@@ -18,20 +18,18 @@ public class EmailGmail {
     
     String from,pass,subject;
     
-    public EmailGmail()
-    { }
+    public EmailGmail() { }
     
-    public void sendIt(String to,String body)
+    public void sendIt(String to, String body)
     {
         from = "navatran424@gmail.com";
         pass = "navatranpassword";
         subject = "Thank you for your purchase !";
         try
         {
-                sendMail(to, from, pass, subject, body, false);
+                sendMail(to, from, pass, subject, body, true);
         }
-        catch(MessagingException e)
-        {}
+        catch(MessagingException e) {}
     }
 	
     private void sendMail(String to, String from, String password, String subject, String body, boolean bodyIsHTML) throws MessagingException
