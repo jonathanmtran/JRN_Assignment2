@@ -63,7 +63,7 @@
 
 <br>
 
-<a href="<%= response.encodeURL("index.jsp")%>">Continue Shopping</a>
+<a href="<%= request.getContextPath() %>">Continue Shopping</a>
 
 <% if(cart.getCount() > 0) { %>
 <a href="<%= response.encodeURL("checkout") %>">Checkout</a>
