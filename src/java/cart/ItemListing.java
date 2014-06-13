@@ -31,7 +31,7 @@ public class ItemListing extends HttpServlet {
 			page = Integer.parseInt(request.getParameter("page"));
 		
 		ArrayList<Item> allItems = ItemDB.fetchAll();
-		pages = (int)Math.ceil(allItems.size()/itemsPerPage);
+		pages = (int)Math.ceil(allItems.size() * 1.0/itemsPerPage * 1.0);
 		
 		if(page > pages)
 			page = pages;
@@ -41,8 +41,10 @@ public class ItemListing extends HttpServlet {
 			start = (page - 1) * itemsPerPage;
 		
 		ArrayList<Item> items = new ArrayList<>();
-		for(int i = start; i < (start + itemsPerPage); i++)
-			items.add(allItems.get(i));
+		for(int i = start; i < (start + itemsPerPage); i++) {
+			if(i < allItems.size())
+				items.add(allItems.get(i));
+		}
 		
 		request.setAttribute("page", page);
 		request.setAttribute("pages", pages);

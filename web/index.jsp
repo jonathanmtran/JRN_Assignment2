@@ -33,7 +33,7 @@
 
 <ul class="pagination pull-right">
 <% 
-	for(int i = 0; i <= (int)request.getAttribute("pages"); i++) { 
+	for(int i = 0; i < (int)request.getAttribute("pages"); i++) { 
 		int pageNum = i + 1;
 %>
 	
