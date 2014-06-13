@@ -23,21 +23,21 @@
 	
 	<div class="form-group">
 		<label class="col-sm-2 control-label">City</label>
-		<div class="col-sm-10">
+		<div class="col-sm-5">
 			<input type="text" name="city" class="form-control" />
 		</div>
 	</div>
 	
 	<div class="form-group">
 		<label class="col-sm-2 control-label">State</label>
-		<div class="col-sm-10">
+		<div class="col-sm-2">
 			<input type="text" name="state" size="2" class="form-control" />
 		</div>
 	</div>
 	
 	<div class="form-group">
 		<label class="col-sm-2 control-label">Zip</label>
-		<div class="col-sm-10">
+		<div class="col-sm-2">
 			<input type="text" name="zip" size="5" class="form-control" />
 		</div>
 	</div>
