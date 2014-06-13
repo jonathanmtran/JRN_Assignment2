@@ -61,7 +61,7 @@
 <a href="<%= request.getContextPath() %>" class="btn btn-default">Continue Shopping</a>
 
 <% if(cart.getCount() > 0) { %>
-<a href="<%= response.encodeURL("checkout") %>" class="btn btn-default pull-right">Checkout</a>
+<a href="<%= response.encodeURL("checkout") %>" class="btn btn-default pull-right">Go to Shipping</a>
 <% } %>
 
 <jsp:include page="inc/footer.jsp" />
